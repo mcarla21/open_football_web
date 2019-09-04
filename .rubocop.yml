@@ -9,3 +9,6 @@ Metrics/LineLength:
   # If you want the rule not to apply to a specific folder/file
   Exclude:
     - 'db/schema.rb'
+
+Metrics/BlockLength:
+  Max: 30

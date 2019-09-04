@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
+# this is the controller
+# that takes care of all actions related to managers
 class ManagersController < ApplicationController
-  before_action :set_manager, only: [:show, :edit, :update, :destroy]
+  before_action :set_manager, only: %i[show edit update destroy]
 
   # GET /managers
   # GET /managers.json

@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
+# this is the controller
+# that takes care of all actions related to players
 class PlayersController < ApplicationController
-  before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :set_player, only: %i[show edit update destroy]
 
   # GET /players
   # GET /players.json
@@ -9,8 +13,7 @@ class PlayersController < ApplicationController
 
   # GET /players/1
   # GET /players/1.json
-  def show
-  end
+  def show; end
 
   # GET /players/new
   def new
@@ -18,8 +21,7 @@ class PlayersController < ApplicationController
   end
 
   # GET /players/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /players
   # POST /players.json
@@ -62,13 +64,12 @@ class PlayersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_player
-      @player = Player.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def player_params
-      params.require(:player).permit(:name, :skill_level, :team_id)
-    end
+  def set_player
+    @player = Player.find(params[:id])
+  end
+
+  def player_params
+    params.require(:player).permit(:name, :skill_level, :team_id)
+  end
 end
