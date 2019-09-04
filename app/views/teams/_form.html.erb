@@ -1,0 +1,66 @@
+<%= form_with(model: setup_team(team), local: true) do |form| %>
+  <% if team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :abbreviation %>
+    <%= form.text_field :abbreviation %>
+  </div>
+
+  <h3>Manager</h3>
+  <%= form.fields_for :manager do |manager_form| %>
+    <div>
+      <%= manager_form.label :first_name %>
+      <%= manager_form.text_field :first_name %>
+    </div>
+
+    <div>
+      <%= manager_form.label :last_name %>
+      <%= manager_form.text_field :last_name %>
+    </div>
+
+    <div>
+      <%= manager_form.label :age %>
+      <%= manager_form.number_field :age%>
+    </div>
+
+    <div>
+      <%= manager_form.label :description %>
+      <%= manager_form.text_field :description %>
+    </div>
+  <% end %>
+  <h3>Players</h3>
+  <p>You have the possibility to create three players</p>
+  <% setup_team(team).players.each do |player| %>
+    <h4>Player</h4>
+    <%= form.fields_for :players, player do |player_form| %>
+      <div>
+        <%= player_form.label :name %>
+        <%= player_form.text_field :name %>
+      </div>
+
+      <div>
+        <%= player_form.label :skill_level %>
+        <%= player_form.number_field :skill_level %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
