@@ -1,7 +1,8 @@
 Team name,Team abbreviation,Manager name,Players name,Players skill level
-First Team,FT,Manager 1,Mircea,2
-"","","",Ion,5
-"","","",Ilie,3
-Second team,"",Mihai,"",
-"","","","",
-"","","","",
+Team  2,T2,Ilie,P11,3
+"","","",P12,4
+"","","",P13,6
+"","","",P15,8
+Team 3,T3,Daniel,John,13
+"","","",Johny,7
+"","","",Johnny,4
