@@ -6,7 +6,7 @@ json.set! :manager do
 end
 json.set! :players do
   json.array! team.players do |player|
-    json.extract! player, :name, :age
+    json.extract! player, :name, :skill_level
   end
 end
 json.url team_url(team, format: :json)
