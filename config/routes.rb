@@ -2,6 +2,7 @@
 
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  root 'teams#index'
   mount Sidekiq::Web => '/sidekiq'
   resources :players
   resources :managers
