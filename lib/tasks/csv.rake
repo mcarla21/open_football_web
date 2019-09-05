@@ -9,7 +9,9 @@ namespace :csv do
     rows << headers
     teams = Team.all
     teams.each do |team|
-      first_row_for_team = [team.name, team.abbreviation, team.manager.first_name]
+      first_row_for_team = [team.name, team.abbreviation]
+      manager =  team.manager.nil? ? '' : team.manager.first_name
+      first_row_for_team << manager
       if team.players.empty?
         row = first_row_for_team << ['', '']
         rows << row
